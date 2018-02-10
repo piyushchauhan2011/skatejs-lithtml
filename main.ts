@@ -2,6 +2,18 @@ import { props, withComponent } from "skatejs";
 import withLitHtml from "@skatejs/renderer-lit-html";
 import { html } from "lit-html";
 
+interface IPosition {
+  x: number;
+  y: number;
+}
+interface IProps {
+  name: string;
+}
+interface IState {
+  value: string;
+  position: IPosition
+}
+
 class WithLitHtml extends withComponent(withLitHtml()) {
   state = {
     value: "",
@@ -37,7 +49,7 @@ class WithLitHtml extends withComponent(withLitHtml()) {
     this.state = { ...this.state, value: "Hey There!" };
   }
 
-  render({ props, state }) {
+  render({ props, state }: { props: IProps, state: IState }) {
     return html`
       <section>
         <h1>Hello, ${props.name}!</h1>
