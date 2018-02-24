@@ -15,7 +15,7 @@ interface IState {
 }
 
 class WithLitHtml extends withComponent(withLitHtml()) {
-  state = {
+  state: IState = {
     value: "",
     position: {
       x: 0,
@@ -41,7 +41,7 @@ class WithLitHtml extends withComponent(withLitHtml()) {
     })
   }
 
-  shouldUpdate(prevProps, prevState) {
+  shouldUpdate(prevProps: IProps, prevState: IState) {
     return prevState !== this.state
   }
 
